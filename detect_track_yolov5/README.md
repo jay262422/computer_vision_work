@@ -25,3 +25,50 @@ The final solution uses **YOLOv5** for person detection and **DeepSORT** for tra
 2. Install the required dependencies by running:
    ```bash
    pip install -r requirements.txt
+   
+## 2. Running the Code
+
+Once the environment is set up, you can run the script on a test video by specifying the video path, output path, model, and detection confidence threshold. This allows you to perform person detection and tracking on your input video.
+
+Use the following command in your terminal to run the code:
+
+```bash
+python detect_and_track_persons.py --video_path test_video.mp4 --output_path output_video.mp4 --model yolov5l --threshold 0.5
+
+
+### 3. Parameters:
+
+- **`--video_path`**: 
+  - Description: The path to the input video file that you want to analyze.
+  - Example: `--video_path ./data/test_video.mp4`
+  - **Required**: Yes
+
+- **`--output_path`**: 
+  - Description: The path where the output video (with predictions and tracking overlay) will be saved.
+  - Example: `--output_path ./results/output_video.mp4`
+  - **Required**: Yes
+
+- **`--model`**: 
+  - Description: The YOLOv5 model variant to use for detection. You can select different models based on your desired trade-off between speed and accuracy:
+    - `yolov5s`: Small and fast, but less accurate.
+    - `yolov5m`: Medium-sized, balanced between speed and accuracy.
+    - `yolov5l`: Large, more accurate but slower.
+  - Default: `yolov5l`
+  - Example: `--model yolov5s`
+  - **Required**: No (default is `yolov5l`)
+
+- **`--threshold`**: 
+  - Description: The confidence threshold for person detection. Only detections with confidence scores higher than this value will be considered valid.
+  - Range: The value should be between 0 and 1.
+    - Lower values (e.g., 0.25) allow more detections but can introduce more false positives.
+    - Higher values (e.g., 0.75) reduce the number of false positives but might miss some detections.
+  - Default: `0.5`
+  - Example: `--threshold 0.5`
+  - **Required**: No (default is `0.5`)
+
+### Example Command
+
+To detect and track people in a video, you can run the following command in your terminal:
+
+```bash
+python detect_and_track_persons.py --video_path ./data/test_video.mp4 --output_path ./results/output_video.mp4 --model yolov5m --threshold 0.75
