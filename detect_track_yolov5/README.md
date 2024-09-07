@@ -26,15 +26,12 @@ The final solution uses **YOLOv5** for person detection and **DeepSORT** for tra
    ```bash
    pip install -r requirements.txt
    
-## 2. Running the Code
-
-Once the environment is set up, you can run the script on a test video by specifying the video path, output path, model, and detection confidence threshold. This allows you to perform person detection and tracking on your input video.
-
-Use the following command in your terminal to run the code:
-
-```bash
-python detect_and_track_persons.py --video_path test_video.mp4 --output_path output_video.mp4 --model yolov5l --threshold 0.5
-
+### 2. Running the Code
+-Once the environment is set up, you can run the script on a test video by specifying the video path, output path, model, and detection confidence threshold. This allows you to perform     person detection and tracking on your input video.
+-Use the following command in your terminal to run the code:
+    ```bash
+    python detect_and_track_persons.py --video_path test_video.mp4 --output_path output_video.mp4 --model yolov5l --threshold 0.5
+   
 
 ### 3. Parameters:
 
@@ -55,7 +52,7 @@ python detect_and_track_persons.py --video_path test_video.mp4 --output_path out
     - `yolov5l`: Large, more accurate but slower.
   - Default: `yolov5l`
   - Example: `--model yolov5s`
-  - **Required**: No (default is `yolov5l`)
+  - **Required**: No (default is `yolov5m`)
 
 - **`--threshold`**: 
   - Description: The confidence threshold for person detection. Only detections with confidence scores higher than this value will be considered valid.
